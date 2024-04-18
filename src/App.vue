@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <UserForm></UserForm>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import UserForm from './components/UserForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    UserForm
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@font-face {
+    font-family: 'MYHaemalgeunSangsang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/MYHaemalgeunSangsang.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
+
+body {
+    font-family: 'MYHaemalgeunSangsang', sans-serif;
+}
+
 </style>
