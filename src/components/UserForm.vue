@@ -64,16 +64,21 @@ export default {
   },
   methods: {
     async signUp() {
+      this.loading = true;
+      this.errorMessage = '';
       try {
-        const response = await axios.post('http://localhost:3000/users/signup', this.signUpData);
+        const response = await axios.post(`${process.env.VUE_APP_API_URL}/users/signup`, this.signUpData);
         alert('Sign up successful! Response: ' + JSON.stringify(response.data));
       } catch (error) {
-        alert('Sign up failed! Error: ' + error.response.data.message);
+        this.errorMessage = error.response?.data?.message || 'An unexpected error occurred';
+        alert('Sign up failed! Error: ' + this.errorMessage);
+      } finally {
+        this.loading = false;
       }
     },
     async signIn() {
       try {
-        const response = await axios.post('http://localhost:3000/users/login', this.loginData);
+        const response = await axios.post(`${process.env.VUE_APP_API_URL}/users/login`, this.loginData);
         alert('Login successful! Response: ' + JSON.stringify(response.data));
       } catch (error) {
         alert('Login failed! Error: ' + error.response.data.message);
@@ -81,7 +86,7 @@ export default {
     },
     async deleteUser() {
       try {
-        const response = await axios.delete(`http://localhost:3000/users/${this.userId}`);
+        const response = await axios.delete(`${process.env.VUE_APP_API_URL}/users/${this.userId}`);
         alert('User deleted successfully! Response: ' + JSON.stringify(response.data));
       } catch (error) {
         alert('User deletion failed! Error: ' + error.response.data.message);
@@ -89,7 +94,7 @@ export default {
     },
     async updateUser() {
       try {
-        const response = await axios.patch(`http://localhost:3000/users/${this.updateData.id}`, {
+        const response = await axios.patch(`${process.env.VUE_APP_API_URL}/users/${this.updateData.id}`, {
           email: this.updateData.email,
           name: this.updateData.name
         });
