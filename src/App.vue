@@ -1,17 +1,11 @@
 <template>
   <div>
-    <UserForm></UserForm>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import UserForm from './components/UserForm.vue'
-
 export default {
-  name: 'App',
-  components: {
-    UserForm
-  }
 }
 </script>
 

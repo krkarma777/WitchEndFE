@@ -103,7 +103,6 @@ export default {
         alert('User update failed! Error: ' + error.response.data.message);
       }
     }
-
   }
 };
 </script>
