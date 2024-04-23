@@ -1,5 +1,8 @@
 # witch-end
 
+![image](https://github.com/krkarma777/WitchEndFE/assets/149022496/6bf0cba4-4100-43d1-9935-809cd34e210f)
+
+
 ## Project setup
 ```
 npm install
